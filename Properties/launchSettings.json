@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "配置文件 1": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Coding\\C#\\TestClockForm\\bin\\Debug\\net8.0-windows\\publish\\win-x64\\TestClockForm.exe"
+    },
+    "IntervalClock": {
+      "commandName": "Project"
+    }
+  }
+}
