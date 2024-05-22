@@ -1,4 +1,4 @@
-﻿namespace IntervalClock
+﻿namespace IntervalClock.Forms
 {
     partial class SettingsForm
     {

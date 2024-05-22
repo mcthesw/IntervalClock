@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace IntervalClock
+﻿namespace IntervalClock.Forms
 {
     public partial class ClockForm : Form
     {
-        private static readonly string FormatMessage = "HH:mm:ss";
-        private int _secondCounter = 0;
+        private const string FormatMessage = "HH:mm:ss";
+        private int _secondCounter;
         public ClockForm()
         {
             InitializeComponent();
@@ -31,6 +21,23 @@ namespace IntervalClock
                 }
             }
             NumberClock.Text = DateTime.Now.ToString(FormatMessage);
+        }
+
+        /// <summary>
+        /// 防止捕获到用户焦点，干扰目前活动
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var baseParams = base.CreateParams;
+
+                const int WS_EX_NOACTIVATE = 0x08000000;
+                const int WS_EX_TOOLWINDOW = 0x00000080;
+                baseParams.ExStyle |= (int)(WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW);
+
+                return baseParams;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace IntervalClock
+namespace IntervalClock.Forms
 {
     public partial class SettingsForm : Form
     {
@@ -36,13 +36,13 @@ namespace IntervalClock
         private void SaveButton_Click(object sender, EventArgs e)
         {
             SaveConfig();
-            MessageBox.Show("修改成功");
+            MessageBox.Show("淇敼鎴愬姛");
         }
 
         private void AbortChangeButton_Click(object sender, EventArgs e)
         {
             LoadConfig();
-            MessageBox.Show("重置成功");
+            MessageBox.Show("閲嶇疆鎴愬姛");
         }
     }
 }

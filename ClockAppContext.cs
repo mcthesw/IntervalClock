@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IntervalClock.Forms;
 using IntervalClock.Properties;
 using NAudio.Vorbis;
 using NAudio.Wave;
