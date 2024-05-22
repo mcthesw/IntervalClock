@@ -44,5 +44,38 @@ namespace IntervalClock.Forms
             LoadConfig();
             MessageBox.Show("重置成功");
         }
+
+        private float x;
+        private float y;
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            x = this.Width;
+            y = this.Height;
+
+            foreach (Control con in this.Controls) con.Tag = con.Width + ":" + con.Height + ":" + con.Left + ":" + con.Top + ":" + con.Font.Size;
+        }
+
+        private void SettingsForm_Resize(object sender, EventArgs e)
+        {
+            if (this.Width <= 334) this.Width = 334;
+            if (this.Height <= 421) this.Height = 421;
+            float newX = this.Width / x;
+            float newY = this.Height / y;
+            setControlsSize(newX, newY, this);
+        }
+
+        private void setControlsSize(float newX, float newY, Control cons)
+        {
+            foreach (Control con in cons.Controls)
+            {
+                string[] tag = con.Tag.ToString().Split(":");
+                float a = Convert.ToSingle(tag[0]) * newX;
+                con.Width = (int)a;
+                a = Convert.ToSingle(tag[2]) * newX;
+                con.Left = (int)(a);
+                a = Convert.ToSingle(tag[3]) * newY;
+                con.Top = (int)(a);
+            }
+        }
     }
 }
