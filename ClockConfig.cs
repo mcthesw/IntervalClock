@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using IntervalClock.Properties;
+using System.Configuration;
 
 namespace IntervalClock;
 
@@ -63,6 +64,16 @@ public class ClockConfig:ConfigurationSection
         set => this[nameof(EnableClock)] = value;
     }
 
+    /// <summary>
+    /// 音频路径
+    /// </summary>
+    [ConfigurationProperty(nameof(SoundPath), IsRequired = false, DefaultValue = "")]
+    public string SoundPath
+    {
+        get => (string)this[nameof(SoundPath)];
+        set => this[nameof(SoundPath)] = value;
+    }
+
     public void Save()
     {
         var fileMap = new ExeConfigurationFileMap { ExeConfigFilename = ConfigFilePath };
@@ -73,7 +84,8 @@ public class ClockConfig:ConfigurationSection
             NeverHideClock = this.NeverHideClock,
             MinuteInterval = this.MinuteInterval,
             ShowClockTime = this.ShowClockTime,
-            EnableClock = this.EnableClock
+            EnableClock = this.EnableClock,
+            SoundPath = this.SoundPath
         };
         config.Sections.Add("ClockConfig", newClockConfig);
         config.Save(ConfigurationSaveMode.Modified);

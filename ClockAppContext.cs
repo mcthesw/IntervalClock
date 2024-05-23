@@ -49,10 +49,20 @@ namespace IntervalClock
             },null);
             Task.Run(() =>
             {
-                using var audioFile = new MemoryStream(Resources.ClockSound);
                 using var outputDevice = new WaveOutEvent();
-                var vorbisReader = new VorbisWaveReader(audioFile);
-                outputDevice.Init(vorbisReader);
+
+                if (!ClockConfig.Instance.SoundPath.Equals(""))
+                {
+                    using var audioFile = new AudioFileReader(ClockConfig.Instance.SoundPath) ;
+                    outputDevice.Init(audioFile);
+                }
+                else
+                {
+                    using var audioFile = new MemoryStream(Resources.ClockSound) ;
+                    using var vorbisReader = new VorbisWaveReader(audioFile) ;
+                    outputDevice.Init(vorbisReader);
+                }
+
                 outputDevice.Play();
                 // 等待音频播放完成
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
