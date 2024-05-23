@@ -38,6 +38,10 @@
             AbortChangeButton = new Button();
             EnableClockBox = new CheckBox();
             EnableClockLabel = new Label();
+            label1 = new Label();
+            SoundPathTextBox = new TextBox();
+            SelectButton = new Button();
+            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)ShowClockTimeNumSelect).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MinuteIntervalNumSelect).BeginInit();
             SuspendLayout();
@@ -137,11 +141,44 @@
             EnableClockLabel.TabIndex = 9;
             EnableClockLabel.Text = "是否启用";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(22, 151);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 20);
+            label1.TabIndex = 10;
+            label1.Text = "提示音频路径";
+            // 
+            // SoundPathTextBox
+            // 
+            SoundPathTextBox.Location = new Point(168, 148);
+            SoundPathTextBox.Name = "SoundPathTextBox";
+            SoundPathTextBox.Size = new Size(150, 27);
+            SoundPathTextBox.TabIndex = 11;
+            // 
+            // SelectButton
+            // 
+            SelectButton.Location = new Point(324, 147);
+            SelectButton.Name = "SelectButton";
+            SelectButton.Size = new Size(55, 29);
+            SelectButton.TabIndex = 12;
+            SelectButton.Text = "选择";
+            SelectButton.UseVisualStyleBackColor = true;
+            SelectButton.Click += SelectButton_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(409, 450);
+            Controls.Add(SelectButton);
+            Controls.Add(SoundPathTextBox);
+            Controls.Add(label1);
             Controls.Add(EnableClockLabel);
             Controls.Add(EnableClockBox);
             Controls.Add(AbortChangeButton);
@@ -172,5 +209,9 @@
         private Button AbortChangeButton;
         private CheckBox EnableClockBox;
         private Label EnableClockLabel;
+        private Label label1;
+        private TextBox SoundPathTextBox;
+        private Button SelectButton;
+        private OpenFileDialog openFileDialog1;
     }
 }
