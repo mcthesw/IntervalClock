@@ -67,7 +67,7 @@ public class ClockConfig:ConfigurationSection
     /// <summary>
     /// 音频路径
     /// </summary>
-    [ConfigurationProperty(nameof(SoundPath), IsRequired = true, DefaultValue = "")]
+    [ConfigurationProperty(nameof(SoundPath), IsRequired = false, DefaultValue = "")]
     public string SoundPath
     {
         get => (string)this[nameof(SoundPath)];
