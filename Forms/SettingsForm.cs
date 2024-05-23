@@ -51,7 +51,7 @@ namespace IntervalClock.Forms
         {
             openFileDialog1.CheckFileExists = true;
             openFileDialog1.CheckPathExists = true;
-            openFileDialog1.Filter = "音频文件(.mp3)|.mp3;";
+            //openFileDialog1.Filter = "音频文件(.mp3)|.mp3";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 SoundPathTextBox.Text= openFileDialog1.FileName;
