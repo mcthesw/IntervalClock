@@ -43,6 +43,9 @@ namespace IntervalClock.Forms
             }
         }
 
+        /// <summary>
+        /// 加载时钟样式
+        /// </summary>
         private void LoadStyle()
         {
             //时钟位置
@@ -53,7 +56,7 @@ namespace IntervalClock.Forms
                     this.Location = new Point(0, 0);
                     break;
                 case "TopRight":
-                    this.Location = new Point(workingArea.Width - this.Width, 0);
+                    this.Location = new Point((workingArea.Width - this.Width), 0);
                     break;
                 case "TopCenter":
                     this.Location = new Point((workingArea.Width / 2) - (this.Width / 2),0);
@@ -66,9 +69,9 @@ namespace IntervalClock.Forms
                     break;
             }
             //背景颜色
-            NumberClock.BackColor = Color.FromArgb(Convert.ToInt32(ClockStyle.Instance.BackColor));
+            NumberClock.BackColor = Color.FromArgb(ClockStyle.Instance.BackColor);
             //字体颜色
-            NumberClock.ForeColor = Color.FromArgb(Convert.ToInt32(ClockStyle.Instance.FontColor));
+            NumberClock.ForeColor = Color.FromArgb(ClockStyle.Instance.FontColor);
         }
     }
 }

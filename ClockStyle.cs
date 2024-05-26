@@ -41,20 +41,20 @@ namespace IntervalClock
         /// <summary>
         /// 背景颜色
         /// </summary>
-        [ConfigurationProperty(nameof(BackColor), IsRequired = true, DefaultValue = "Black")]
-        public string BackColor
+        [ConfigurationProperty(nameof(BackColor), IsRequired = true, DefaultValue = -16777216 )]
+        public int BackColor
         {
-            get => (string)this[nameof(BackColor)];
+            get => (int)this[nameof(BackColor)];
             set => this[nameof(BackColor)] = value;
         }
 
         /// <summary>
         /// 字体颜色
         /// </summary>
-        [ConfigurationProperty(nameof(FontColor),IsRequired =true,DefaultValue ="White")]
-        public string FontColor
+        [ConfigurationProperty(nameof(FontColor),IsRequired =true,DefaultValue = -1 )]
+        public int FontColor
         {
-            get=> (string)this[nameof(FontColor)];
+            get=> (int)this[nameof(FontColor)];
             set=> this[nameof(FontColor)] = value;
         }
 

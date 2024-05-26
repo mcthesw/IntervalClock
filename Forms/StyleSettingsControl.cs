@@ -36,8 +36,8 @@ namespace IntervalClock.Forms
         {
             var style = ClockStyle.Instance;
             style.Location = LocationComboBox.Text;
-            style.BackColor = BackColorTextBox.Text;
-            style.FontColor = FontColorTextBox.Text;
+            style.BackColor = Convert.ToInt32(BackColorTextBox.Text);
+            style.FontColor = Convert.ToInt32(FontColorTextBox.Text);
             style.Save();
             _timer.UpdateInterval();
         }
@@ -46,8 +46,8 @@ namespace IntervalClock.Forms
         {
             var style = ClockStyle.Instance;
             LocationComboBox.Text = style.Location;
-            BackColorTextBox.Text = style.BackColor;
-            FontColorTextBox.Text = style.FontColor;
+            BackColorTextBox.Text = style.BackColor.ToString();
+            FontColorTextBox.Text = style.FontColor.ToString();
         }
 
         private void ShowClockButton_Click(object sender, EventArgs e)
