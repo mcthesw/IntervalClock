@@ -1,4 +1,6 @@
-﻿namespace IntervalClock.Forms
+﻿using System.Diagnostics;
+
+namespace IntervalClock.Forms
 {
     public partial class ClockForm : Form
     {
@@ -7,7 +9,8 @@
         public ClockForm()
         {
             InitializeComponent();
-            NumberClock.Text = DateTime.Now.ToString(FormatMessage);
+            NumberClock.Text = DateTime.Now.ToString(FormatMessage);   
+            LoadStyle();
         }
 
         private void TickTimer_Tick(object sender, EventArgs e)
@@ -38,6 +41,34 @@
 
                 return baseParams;
             }
+        }
+
+        private void LoadStyle()
+        {
+            //时钟位置
+            Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
+            switch (ClockStyle.Instance.Location)
+            {
+                case "TopLeft":
+                    this.Location = new Point(0, 0);
+                    break;
+                case "TopRight":
+                    this.Location = new Point(workingArea.Width - this.Width, 0);
+                    break;
+                case "TopCenter":
+                    this.Location = new Point((workingArea.Width / 2) - (this.Width / 2),0);
+                    break;
+                case "Center":
+                    this.Location = new Point((workingArea.Width/2)-(this.Width/2), (workingArea.Height/2)-(this.Height/2));
+                    break;
+                default:
+                    this.Location = new Point(0, 0);
+                    break;
+            }
+            //背景颜色
+            NumberClock.BackColor = Color.FromArgb(Convert.ToInt32(ClockStyle.Instance.BackColor));
+            //字体颜色
+            NumberClock.ForeColor = Color.FromArgb(Convert.ToInt32(ClockStyle.Instance.FontColor));
         }
     }
 }

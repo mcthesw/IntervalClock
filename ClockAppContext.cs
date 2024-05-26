@@ -53,8 +53,16 @@ namespace IntervalClock
 
                 if (!ClockConfig.Instance.SoundPath.Equals(""))
                 {
-                    using var audioFile = new AudioFileReader(ClockConfig.Instance.SoundPath) ;
-                    outputDevice.Init(audioFile);
+                    try
+                    {
+                        using var audioFile = new AudioFileReader(ClockConfig.Instance.SoundPath);
+                        outputDevice.Init(audioFile);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("音频无法正常播放，请更换音频文件");
+                        return;
+                    }
                 }
                 else
                 {
