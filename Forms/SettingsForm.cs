@@ -1,62 +1,37 @@
+using IntervalClock.Controls;
+
 namespace IntervalClock.Forms
 {
     public partial class SettingsForm : Form
     {
-        private readonly ClockTimer _timer;
+        private readonly TimeSettingsControl _timeSettingsControl;
+        private readonly StyleSettingsControl _styleSettingsControl;
         public SettingsForm(ClockTimer timer)
         {
             InitializeComponent();
-            LoadConfig();
-            this._timer = timer;
+            _timeSettingsControl = new TimeSettingsControl(timer);
+            _styleSettingsControl = new StyleSettingsControl(timer);
         }
 
-        private void LoadConfig()
+        private void SettingsForm_Load(object sender, EventArgs e)
         {
-            var config = ClockConfig.Instance;
-            MinuteIntervalNumSelect.Value = config.MinuteInterval;
-            ShowClockTimeNumSelect.Value = config.ShowClockTime;
-            EnableClockBox.Checked = config.EnableClock;
-            SoundPathTextBox.Text=config.SoundPath;
+            panel1.Controls.Clear();
+            panel1.Controls.Add(_timeSettingsControl);
+            _timeSettingsControl.Show();
         }
 
-        private void SaveConfig()
+        private void FunctionToolStripLabel_Click(object sender, EventArgs e)
         {
-            var config = ClockConfig.Instance;
-            config.MinuteInterval = (int)MinuteIntervalNumSelect.Value;
-            config.ShowClockTime = (int)ShowClockTimeNumSelect.Value;
-            config.EnableClock = EnableClockBox.Checked;
-            config.SoundPath = openFileDialog1.FileName;
-            config.Save();
-            _timer.UpdateInterval();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(_timeSettingsControl);
+            _timeSettingsControl.Show();
         }
 
-        private void ShowClockButton_Click(object sender, EventArgs e)
+        private void StyleToolStripLabel_Click(object sender, EventArgs e)
         {
-            new ClockForm().Show();
-        }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            SaveConfig();
-            MessageBox.Show("修改成功");
-        }
-
-        private void AbortChangeButton_Click(object sender, EventArgs e)
-        {
-            LoadConfig();
-            MessageBox.Show("重置成功");
-        }
-
-        private void SelectButton_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.CheckPathExists = true;
-            //openFileDialog1.Filter = "音频文件(.mp3)|.mp3";
-            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
-            {
-                SoundPathTextBox.Text= openFileDialog1.FileName;
-                SaveConfig();
-            }
+            panel1.Controls.Clear();
+            panel1.Controls.Add(_styleSettingsControl);
+            _styleSettingsControl.Show();
         }
     }
 }

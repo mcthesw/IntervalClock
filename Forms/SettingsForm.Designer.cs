@@ -28,190 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ShowClockLabel = new Label();
-            ShowClockButton = new Button();
-            ShowClockTimeNumSelect = new NumericUpDown();
-            ShowClockTimeLabel = new Label();
-            MinuteIntervalLabel = new Label();
-            MinuteIntervalNumSelect = new NumericUpDown();
-            SaveButton = new Button();
-            AbortChangeButton = new Button();
-            EnableClockBox = new CheckBox();
-            EnableClockLabel = new Label();
-            label1 = new Label();
-            SoundPathTextBox = new TextBox();
-            SelectButton = new Button();
-            openFileDialog1 = new OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)ShowClockTimeNumSelect).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)MinuteIntervalNumSelect).BeginInit();
+            menu = new ToolStrip();
+            FunctionToolStripLabel = new ToolStripLabel();
+            StyleToolStripLabel = new ToolStripLabel();
+            panel1 = new Panel();
+            menu.SuspendLayout();
             SuspendLayout();
             // 
-            // ShowClockLabel
+            // menu
             // 
-            ShowClockLabel.AutoSize = true;
-            ShowClockLabel.Location = new Point(22, 18);
-            ShowClockLabel.Name = "ShowClockLabel";
-            ShowClockLabel.Size = new Size(69, 20);
-            ShowClockLabel.TabIndex = 0;
-            ShowClockLabel.Text = "显示时钟";
+            menu.ImageScalingSize = new Size(20, 20);
+            menu.Items.AddRange(new ToolStripItem[] { FunctionToolStripLabel, StyleToolStripLabel });
+            menu.Location = new Point(0, 0);
+            menu.Name = "menu";
+            menu.Size = new Size(409, 25);
+            menu.TabIndex = 0;
             // 
-            // ShowClockButton
+            // FunctionToolStripLabel
             // 
-            ShowClockButton.Location = new Point(168, 14);
-            ShowClockButton.Name = "ShowClockButton";
-            ShowClockButton.Size = new Size(94, 29);
-            ShowClockButton.TabIndex = 1;
-            ShowClockButton.Text = "显示";
-            ShowClockButton.UseVisualStyleBackColor = true;
-            ShowClockButton.Click += ShowClockButton_Click;
+            FunctionToolStripLabel.Name = "FunctionToolStripLabel";
+            FunctionToolStripLabel.Size = new Size(39, 22);
+            FunctionToolStripLabel.Text = "常规";
+            FunctionToolStripLabel.Click += FunctionToolStripLabel_Click;
             // 
-            // ShowClockTimeNumSelect
+            // StyleToolStripLabel
             // 
-            ShowClockTimeNumSelect.Location = new Point(168, 49);
-            ShowClockTimeNumSelect.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            ShowClockTimeNumSelect.Name = "ShowClockTimeNumSelect";
-            ShowClockTimeNumSelect.Size = new Size(150, 27);
-            ShowClockTimeNumSelect.TabIndex = 2;
-            ShowClockTimeNumSelect.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            StyleToolStripLabel.Name = "StyleToolStripLabel";
+            StyleToolStripLabel.RightToLeft = RightToLeft.No;
+            StyleToolStripLabel.Size = new Size(39, 22);
+            StyleToolStripLabel.Text = "样式";
+            StyleToolStripLabel.Click += StyleToolStripLabel_Click;
             // 
-            // ShowClockTimeLabel
+            // panel1
             // 
-            ShowClockTimeLabel.AutoSize = true;
-            ShowClockTimeLabel.Location = new Point(22, 51);
-            ShowClockTimeLabel.Name = "ShowClockTimeLabel";
-            ShowClockTimeLabel.Size = new Size(114, 20);
-            ShowClockTimeLabel.TabIndex = 3;
-            ShowClockTimeLabel.Text = "弹出时间（秒）";
-            // 
-            // MinuteIntervalLabel
-            // 
-            MinuteIntervalLabel.AutoSize = true;
-            MinuteIntervalLabel.Location = new Point(22, 84);
-            MinuteIntervalLabel.Name = "MinuteIntervalLabel";
-            MinuteIntervalLabel.Size = new Size(129, 20);
-            MinuteIntervalLabel.TabIndex = 5;
-            MinuteIntervalLabel.Text = "弹出间隔（分钟）";
-            // 
-            // MinuteIntervalNumSelect
-            // 
-            MinuteIntervalNumSelect.Location = new Point(168, 82);
-            MinuteIntervalNumSelect.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
-            MinuteIntervalNumSelect.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            MinuteIntervalNumSelect.Name = "MinuteIntervalNumSelect";
-            MinuteIntervalNumSelect.Size = new Size(150, 27);
-            MinuteIntervalNumSelect.TabIndex = 4;
-            MinuteIntervalNumSelect.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // SaveButton
-            // 
-            SaveButton.Location = new Point(22, 409);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(94, 29);
-            SaveButton.TabIndex = 6;
-            SaveButton.Text = "保存";
-            SaveButton.UseVisualStyleBackColor = true;
-            SaveButton.Click += SaveButton_Click;
-            // 
-            // AbortChangeButton
-            // 
-            AbortChangeButton.Location = new Point(122, 409);
-            AbortChangeButton.Name = "AbortChangeButton";
-            AbortChangeButton.Size = new Size(94, 29);
-            AbortChangeButton.TabIndex = 7;
-            AbortChangeButton.Text = "取消修改";
-            AbortChangeButton.UseVisualStyleBackColor = true;
-            AbortChangeButton.Click += AbortChangeButton_Click;
-            // 
-            // EnableClockBox
-            // 
-            EnableClockBox.AutoSize = true;
-            EnableClockBox.Location = new Point(168, 115);
-            EnableClockBox.Name = "EnableClockBox";
-            EnableClockBox.Size = new Size(106, 24);
-            EnableClockBox.TabIndex = 8;
-            EnableClockBox.Text = "勾选以启用";
-            EnableClockBox.UseVisualStyleBackColor = true;
-            // 
-            // EnableClockLabel
-            // 
-            EnableClockLabel.AutoSize = true;
-            EnableClockLabel.Location = new Point(22, 116);
-            EnableClockLabel.Name = "EnableClockLabel";
-            EnableClockLabel.Size = new Size(69, 20);
-            EnableClockLabel.TabIndex = 9;
-            EnableClockLabel.Text = "是否启用";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(22, 151);
-            label1.Name = "label1";
-            label1.Size = new Size(99, 20);
-            label1.TabIndex = 10;
-            label1.Text = "提示音频路径";
-            // 
-            // SoundPathTextBox
-            // 
-            SoundPathTextBox.Location = new Point(168, 148);
-            SoundPathTextBox.Name = "SoundPathTextBox";
-            SoundPathTextBox.Size = new Size(150, 27);
-            SoundPathTextBox.TabIndex = 11;
-            // 
-            // SelectButton
-            // 
-            SelectButton.Location = new Point(324, 147);
-            SelectButton.Name = "SelectButton";
-            SelectButton.Size = new Size(55, 29);
-            SelectButton.TabIndex = 12;
-            SelectButton.Text = "选择";
-            SelectButton.UseVisualStyleBackColor = true;
-            SelectButton.Click += SelectButton_Click;
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
+            panel1.Location = new Point(0, 28);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(409, 432);
+            panel1.TabIndex = 1;
             // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(409, 450);
-            Controls.Add(SelectButton);
-            Controls.Add(SoundPathTextBox);
-            Controls.Add(label1);
-            Controls.Add(EnableClockLabel);
-            Controls.Add(EnableClockBox);
-            Controls.Add(AbortChangeButton);
-            Controls.Add(SaveButton);
-            Controls.Add(MinuteIntervalLabel);
-            Controls.Add(MinuteIntervalNumSelect);
-            Controls.Add(ShowClockTimeLabel);
-            Controls.Add(ShowClockTimeNumSelect);
-            Controls.Add(ShowClockButton);
-            Controls.Add(ShowClockLabel);
+            ClientSize = new Size(409, 463);
+            Controls.Add(panel1);
+            Controls.Add(menu);
             Name = "SettingsForm";
             Text = "SettingsForm";
-            ((System.ComponentModel.ISupportInitialize)ShowClockTimeNumSelect).EndInit();
-            ((System.ComponentModel.ISupportInitialize)MinuteIntervalNumSelect).EndInit();
+            Load += SettingsForm_Load;
+            menu.ResumeLayout(false);
+            menu.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label ShowClockLabel;
-        private Button ShowClockButton;
-        private NumericUpDown ShowClockTimeNumSelect;
-        private Label ShowClockTimeLabel;
-        private Label MinuteIntervalLabel;
-        private NumericUpDown MinuteIntervalNumSelect;
-        private Button SaveButton;
-        private Button AbortChangeButton;
-        private CheckBox EnableClockBox;
-        private Label EnableClockLabel;
-        private Label label1;
-        private TextBox SoundPathTextBox;
-        private Button SelectButton;
-        private OpenFileDialog openFileDialog1;
+        private ToolStrip menu;
+        private ToolStripLabel FunctionToolStripLabel;
+        private ToolStripLabel StyleToolStripLabel;
+        private Panel panel1;
     }
 }
