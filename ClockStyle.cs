@@ -65,10 +65,10 @@ namespace IntervalClock
             style.Sections.Remove("ClockStyle");
             var newClockStyle = new ClockStyle();
             {
-                newClockStyle.Location = this.Location;
-                newClockStyle.BackColor = this.BackColor;
-                newClockStyle.FontColor = this.FontColor;
-            };
+                newClockStyle.Location = Location;
+                newClockStyle.BackColor = BackColor;
+                newClockStyle.FontColor = FontColor;
+            }
             style.Sections.Add("ClockStyle", newClockStyle);
             style.Save(ConfigurationSaveMode.Modified);
         }

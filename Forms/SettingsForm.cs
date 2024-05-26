@@ -1,35 +1,37 @@
+using IntervalClock.Controls;
+
 namespace IntervalClock.Forms
 {
     public partial class SettingsForm : Form
     {
-        TimeSettingsControl timeSettingsControl;
-        StyleSettingsControl styleSettingsControl;
+        private readonly TimeSettingsControl _timeSettingsControl;
+        private readonly StyleSettingsControl _styleSettingsControl;
         public SettingsForm(ClockTimer timer)
         {
             InitializeComponent();
-            this.timeSettingsControl = new TimeSettingsControl(timer);
-            this.styleSettingsControl = new StyleSettingsControl(timer);
+            _timeSettingsControl = new TimeSettingsControl(timer);
+            _styleSettingsControl = new StyleSettingsControl(timer);
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(timeSettingsControl);
-            timeSettingsControl.Show();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(_timeSettingsControl);
+            _timeSettingsControl.Show();
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
+        private void FunctionToolStripLabel_Click(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(timeSettingsControl);
-            timeSettingsControl.Show();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(_timeSettingsControl);
+            _timeSettingsControl.Show();
         }
 
-        private void toolStripLabel2_Click(object sender, EventArgs e)
+        private void StyleToolStripLabel_Click(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(styleSettingsControl);
-            styleSettingsControl.Show();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(_styleSettingsControl);
+            _styleSettingsControl.Show();
         }
     }
 }

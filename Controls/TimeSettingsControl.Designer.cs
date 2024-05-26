@@ -1,4 +1,4 @@
-﻿namespace IntervalClock.Forms
+﻿namespace IntervalClock.Controls
 {
     partial class TimeSettingsControl
     {
@@ -41,7 +41,7 @@
             ShowClockTimeNumSelect = new NumericUpDown();
             ShowClockButton = new Button();
             ShowClockLabel = new Label();
-            openFileDialog1 = new OpenFileDialog();
+            SelectSoundOpenFileDialog = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)MinuteIntervalNumSelect).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ShowClockTimeNumSelect).BeginInit();
             SuspendLayout();
@@ -167,9 +167,9 @@
             ShowClockLabel.TabIndex = 13;
             ShowClockLabel.Text = "显示时钟";
             // 
-            // openFileDialog1
+            // SelectSoundOpenFileDialog
             // 
-            openFileDialog1.FileName = "openFileDialog1";
+            SelectSoundOpenFileDialog.FileName = "SelectSoundOpenFileDialog";
             // 
             // TimeSettingsControl
             // 
@@ -211,6 +211,6 @@
         private NumericUpDown ShowClockTimeNumSelect;
         private Button ShowClockButton;
         private Label ShowClockLabel;
-        private OpenFileDialog openFileDialog1;
+        private OpenFileDialog SelectSoundOpenFileDialog;
     }
 }

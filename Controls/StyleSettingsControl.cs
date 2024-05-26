@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IntervalClock.Forms;
 
-namespace IntervalClock.Forms
+namespace IntervalClock.Controls
 {
     public partial class StyleSettingsControl : UserControl
     {

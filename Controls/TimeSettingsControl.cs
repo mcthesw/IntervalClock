@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IntervalClock.Forms;
 
-namespace IntervalClock.Forms
+namespace IntervalClock.Controls
 {
     public partial class TimeSettingsControl : UserControl
     {
@@ -17,7 +18,7 @@ namespace IntervalClock.Forms
         {
             InitializeComponent();
             LoadConfig();
-            this._timer = timer;
+            _timer = timer;
         }
 
         private void LoadConfig()
@@ -35,7 +36,7 @@ namespace IntervalClock.Forms
             config.MinuteInterval = (int)MinuteIntervalNumSelect.Value;
             config.ShowClockTime = (int)ShowClockTimeNumSelect.Value;
             config.EnableClock = EnableClockBox.Checked;
-            config.SoundPath = openFileDialog1.FileName;
+            config.SoundPath = SelectSoundOpenFileDialog.FileName;
             config.Save();
             _timer.UpdateInterval();
         }
@@ -59,13 +60,13 @@ namespace IntervalClock.Forms
 
         private void SelectButton_Click(object sender, EventArgs e)
         {
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.CheckPathExists = true;
-            openFileDialog1.FileName = "时钟提示音";
-            openFileDialog1.Filter = "MP3文件（*.mp3）|*.mp3|OGG文件（*.ogg）|*.ogg";
-            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            SelectSoundOpenFileDialog.CheckFileExists = true;
+            SelectSoundOpenFileDialog.CheckPathExists = true;
+            SelectSoundOpenFileDialog.FileName = "时钟提示音";
+            SelectSoundOpenFileDialog.Filter = "MP3文件（*.mp3）|*.mp3|OGG文件（*.ogg）|*.ogg";
+            if (SelectSoundOpenFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                SoundPathTextBox.Text = openFileDialog1.FileName;
+                SoundPathTextBox.Text = SelectSoundOpenFileDialog.FileName;
                 SaveConfig();
             }
         }

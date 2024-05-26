@@ -37,7 +37,7 @@ namespace IntervalClock.Forms
 
                 const int WS_EX_NOACTIVATE = 0x08000000;
                 const int WS_EX_TOOLWINDOW = 0x00000080;
-                baseParams.ExStyle |= (int)(WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW);
+                baseParams.ExStyle |= WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW;
 
                 return baseParams;
             }
@@ -49,25 +49,20 @@ namespace IntervalClock.Forms
         private void LoadStyle()
         {
             //时钟位置
-            Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
-            switch (ClockStyle.Instance.Location)
+            if (Screen.PrimaryScreen is null)
             {
-                case "TopLeft":
-                    this.Location = new Point(0, 0);
-                    break;
-                case "TopRight":
-                    this.Location = new Point((workingArea.Width - this.Width), 0);
-                    break;
-                case "TopCenter":
-                    this.Location = new Point((workingArea.Width / 2) - (this.Width / 2),0);
-                    break;
-                case "Center":
-                    this.Location = new Point((workingArea.Width/2)-(this.Width/2), (workingArea.Height/2)-(this.Height/2));
-                    break;
-                default:
-                    this.Location = new Point(0, 0);
-                    break;
+                MessageBox.Show("无法获取屏幕信息");
+                return;
             }
+            var workingArea = Screen.PrimaryScreen.WorkingArea;
+            Location = ClockStyle.Instance.Location switch
+            {
+                "TopLeft" => new Point(0, 0),
+                "TopRight" => new Point((workingArea.Width - Width), 0),
+                "TopCenter" => new Point((workingArea.Width / 2) - (Width / 2), 0),
+                "Center" => new Point((workingArea.Width / 2) - (Width / 2), (workingArea.Height / 2) - (Height / 2)),
+                _ => new Point(0, 0),
+            };
             //背景颜色
             NumberClock.BackColor = Color.FromArgb(ClockStyle.Instance.BackColor);
             //字体颜色

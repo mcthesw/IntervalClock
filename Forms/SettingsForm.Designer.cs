@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             menu = new ToolStrip();
-            toolStripLabel1 = new ToolStripLabel();
-            toolStripLabel2 = new ToolStripLabel();
+            FunctionToolStripLabel = new ToolStripLabel();
+            StyleToolStripLabel = new ToolStripLabel();
             panel1 = new Panel();
             menu.SuspendLayout();
             SuspendLayout();
@@ -38,26 +38,26 @@
             // menu
             // 
             menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2 });
+            menu.Items.AddRange(new ToolStripItem[] { FunctionToolStripLabel, StyleToolStripLabel });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
             menu.Size = new Size(409, 25);
             menu.TabIndex = 0;
             // 
-            // toolStripLabel1
+            // FunctionToolStripLabel
             // 
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(39, 22);
-            toolStripLabel1.Text = "常规";
-            toolStripLabel1.Click += toolStripLabel1_Click;
+            FunctionToolStripLabel.Name = "FunctionToolStripLabel";
+            FunctionToolStripLabel.Size = new Size(39, 22);
+            FunctionToolStripLabel.Text = "常规";
+            FunctionToolStripLabel.Click += FunctionToolStripLabel_Click;
             // 
-            // toolStripLabel2
+            // StyleToolStripLabel
             // 
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.RightToLeft = RightToLeft.No;
-            toolStripLabel2.Size = new Size(39, 22);
-            toolStripLabel2.Text = "样式";
-            toolStripLabel2.Click += toolStripLabel2_Click;
+            StyleToolStripLabel.Name = "StyleToolStripLabel";
+            StyleToolStripLabel.RightToLeft = RightToLeft.No;
+            StyleToolStripLabel.Size = new Size(39, 22);
+            StyleToolStripLabel.Text = "样式";
+            StyleToolStripLabel.Click += StyleToolStripLabel_Click;
             // 
             // panel1
             // 
@@ -85,8 +85,8 @@
         #endregion
 
         private ToolStrip menu;
-        private ToolStripLabel toolStripLabel1;
-        private ToolStripLabel toolStripLabel2;
+        private ToolStripLabel FunctionToolStripLabel;
+        private ToolStripLabel StyleToolStripLabel;
         private Panel panel1;
     }
 }

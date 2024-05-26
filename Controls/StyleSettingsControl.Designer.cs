@@ -1,4 +1,4 @@
-﻿namespace IntervalClock.Forms
+﻿namespace IntervalClock.Controls
 {
     partial class StyleSettingsControl
     {
@@ -46,7 +46,7 @@
             // ClockLocationLabel
             // 
             ClockLocationLabel.AutoSize = true;
-            ClockLocationLabel.Location = new Point(7, 43);
+            ClockLocationLabel.Location = new Point(3, 43);
             ClockLocationLabel.Name = "ClockLocationLabel";
             ClockLocationLabel.Size = new Size(69, 20);
             ClockLocationLabel.TabIndex = 14;
@@ -104,7 +104,7 @@
             // BackColorLabel
             // 
             BackColorLabel.AutoSize = true;
-            BackColorLabel.Location = new Point(7, 83);
+            BackColorLabel.Location = new Point(3, 83);
             BackColorLabel.Name = "BackColorLabel";
             BackColorLabel.Size = new Size(140, 20);
             BackColorLabel.TabIndex = 25;
@@ -131,7 +131,7 @@
             // FontColorLabel
             // 
             FontColorLabel.AutoSize = true;
-            FontColorLabel.Location = new Point(7, 123);
+            FontColorLabel.Location = new Point(3, 123);
             FontColorLabel.Name = "FontColorLabel";
             FontColorLabel.Size = new Size(140, 20);
             FontColorLabel.TabIndex = 28;
